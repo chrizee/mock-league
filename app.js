@@ -1,6 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
+const teamsRoute = require('./src/v1/routes/team.route');
+const authRoute = require('./src/v1/routes/auth.route');
+const fixtureRoute = require('./src/v1/routes/fixtures.route');
+const SearchRoute = require('./src/v1/routes/search.route');
 
 const app = express();
 //using in-built express body-parser
@@ -19,5 +23,9 @@ mongoose.connect(db, {
 .then(() => {})
 .catch(err => {})
 
+app.use('/api/v1/search', SearchRoute);
+app.use('/api/v1/teams', teamsRoute);
+app.use('/api/v1/auth', authRoute);
+app.use('/api/v1/fixtures', fixtureRoute);
 
 module.exports = app;
