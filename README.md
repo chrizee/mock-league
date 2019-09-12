@@ -47,7 +47,7 @@ npm run test
 
 ## API Routes
 
-Full documentation of routes can be found at 
+Full documentation of API can be found at 
 
 [Postman](https://documenter.getpostman.com/view/7831642/SVSKKUBN)
 
