@@ -9,8 +9,8 @@ exports.registerValidator = [
 ];
 
 exports.loginValidator = [
-    body('email').isEmail().withMessage("email must be a valid email address").trim(),
-    body('password').not().isEmpty().withMessage("Password cannot be empty").trim(),    
+    body('email').not().isEmpty().withMessage("email cannot be empty").isEmail().withMessage("email must be a valid email address").trim(),
+    body('password').not().isEmpty().withMessage("password cannot be empty").trim(),    
 
     sanitizeBody('*').escape(),
 ];

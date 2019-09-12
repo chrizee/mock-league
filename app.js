@@ -13,7 +13,6 @@ app.use(express.json());
 //db config
 const db = process.env.NODE_ENV === 'test' ? process.env.DATABASE_URI_TEST  : process.env.DATABASE_URI;
 //connect to mongo
-console.log(db);
 
 mongoose.connect(db, {
     useNewUrlParser: true,
