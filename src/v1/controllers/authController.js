@@ -12,8 +12,8 @@ const createUser = (req, res) => {
         name, email, password, is_admin
     });
     //create salt && hash
-    return bcrypt.genSalt(10, (err, salt) => {
-        return bcrypt.hash(newUser.password, salt, async (err, hash) => {
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, async (err, hash) => {
             if(err) throw err;
             newUser.password = hash;
             try {
@@ -52,7 +52,7 @@ exports.register = (req, res) => {
         req.body.is_admin = true;
     }
     const email = req.body.email;
-    return User.findOne({email})
+    User.findOne({email})
         .then( async user => {
             if(user) {
                 return res.status(400).json({success : false, "message": "User already exist"})
